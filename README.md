@@ -47,9 +47,12 @@ List of sql commands that I used:
    AGE INT,
    SEX CHAR(1),
    INCOME FLOAT`
+   <br>
 `INSERT INTO EMPLOYEE(FIRST_NAME, LAST_NAME, AGE, SEX,
    INCOME) VALUES ('Amol', 'Dhondse', 30, 'M', 9000)`
+   <br>
 `SELECT * FROM EMPLOYEE`
+<br>
 `DROP TABLE EMPLOYEE`
 
 #### 2.3 See the data inflow on satellite dashboad.
