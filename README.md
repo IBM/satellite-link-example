@@ -26,7 +26,7 @@
 
     oc get routes -n <project_name>
     
-![](images/oc1.png)
+![](images/oc.png)
 
 ### 2. Run the application
 
@@ -39,6 +39,8 @@ In place of host url and port, give your satellite endpoint url and its port. Al
 #### 2.2 Run the following sql commands 
 
 Lets try out some SQL commnads and see if it works.
+
+![](images/sql.gif)
 
 List of sql commands that I used:<br>
 **`CREATE TABLE EMPLOYEE(
