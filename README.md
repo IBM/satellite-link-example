@@ -41,7 +41,7 @@ In place of host url and port, give your satellite endpoint url and its port. Al
 Lets try out some SQL commnads and see if it works.
 
 List of sql commands that I used:<br>
-`CREATE TABLE EMPLOYEE(
+**`CREATE TABLE EMPLOYEE(
    FIRST_NAME CHAR(20) NOT NULL,
    LAST_NAME CHAR(20),
    AGE INT,
@@ -49,11 +49,11 @@ List of sql commands that I used:<br>
    INCOME FLOAT`
    <br><br>
 `INSERT INTO EMPLOYEE(FIRST_NAME, LAST_NAME, AGE, SEX,
-   INCOME) VALUES ('Amol', 'Dhondse', 30, 'M', 9000)`
+   INCOME) VALUES ('John', 'Win', 30, 'M', 9000)`
    <br><br>
 `SELECT * FROM EMPLOYEE`
 <br><br>
-`DROP TABLE EMPLOYEE`
+`DROP TABLE EMPLOYEE`**
 
 #### 2.3 See the data inflow on satellite dashboad.
 
