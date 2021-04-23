@@ -1,4 +1,4 @@
-# satellite-link-example
+# Satellite Link Example
 
 ### 1. Deploy the application on Red Hat OpenShift cluster
 
