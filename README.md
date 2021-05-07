@@ -43,12 +43,7 @@ Lets try out some SQL commnads and see if it works.
 ![](images/sql.gif)
 
 List of sql commands that I used:<br>
-**`CREATE TABLE EMPLOYEE(
-   FIRST_NAME CHAR(20) NOT NULL,
-   LAST_NAME CHAR(20),
-   AGE INT,
-   SEX CHAR(1),
-   INCOME FLOAT`
+**`CREATE TABLE EMPLOYEE(    FIRST_NAME CHAR(20) NOT NULL,    LAST_NAME CHAR(20),    AGE INT,    SEX CHAR(1),    INCOME FLOAT )`
    <br><br>
 `INSERT INTO EMPLOYEE(FIRST_NAME, LAST_NAME, AGE, SEX,
    INCOME) VALUES ('John', 'Win', 30, 'M', 9000)`
