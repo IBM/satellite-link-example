@@ -18,7 +18,7 @@
 
     oc new-project <project_name>
 
-#### 1.3. Download the `ExampleApp/deployment.yaml` in this repo, and run the following command
+#### 1.3. Download the `deployment.yaml` in this repo, and run the following command
 
     oc  apply -f  deployment.yaml
 
