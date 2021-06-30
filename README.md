@@ -26,7 +26,7 @@ This sample requires:
    ```
 1. Create a new application in the OpenShift project:
    ```sh
-   oc new-app python~https://github.com/l2fprod/satellite-link-example.git --name link-example
+   oc new-app python~https://github.com/IBM/satellite-link-example.git --name link-example
    ```
 1. Wait for the first application build to complete by monitoring the logs:
    ```sh
