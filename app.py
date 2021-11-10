@@ -21,17 +21,12 @@ def my_form():
 @app.route('/login', methods=['POST'])
 def login():
     # Add credentials to authenticate to the service instance.
-    # serviceUsername = "apikey-v2-58B528DF5397465BB6673E1B79482A8C"
-    # servicePassword = "680b037145f9dc8ef9e6a6d8b480783cbc1d1c12e71a0f4ced6b1eee30a243cd"
-    # serviceURL = "https://0c869093-c3ee-4a3f-bcec-00f01c8df8d8-bluemix.cloudantnosqldb.appdomain.cloud"
-    # databaseName = "databasedemo"
     global service
 
     try:
         serviceURL = request.form['host']
-        #port = request.form['port']
-        #accountName = request.form['user']
         apiKey = request.form['password']
+        
         # Create the authenticator.
         authenticator = IAMAuthenticator(apiKey)
         service = CloudantV1(authenticator=authenticator)
