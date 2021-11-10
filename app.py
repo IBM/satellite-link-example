@@ -59,7 +59,7 @@ def createDB():
         if ae.code == 412:
             text = f'Cannot create "{databaseName}" database, it already exists.'
 
-    return render_template('db.html', data=text)
+    return render_template('db.html', data=text, param=True)
 
 
 @app.route('/employee', methods=['POST'])
@@ -78,9 +78,8 @@ def createEmployee():
         if create_document_response["rev"]:
             text = f'You have created the document:\n{employee_record}'
 
-    except ApiException as ae:
-        if ae.code == 412:
-            text = f'Cannot create "{employee_record}" record, it already exists.'
+    except:
+        text = f'Cannot create "{employee_record}" record, it already exists.'
 
     return render_template('db.html', data=text)
 
@@ -95,11 +94,10 @@ def getEmployees():
             limit=2
         ).get_result()
         if read_all_employees["rows"]:
-            text = f'You have created the document:\n{read_all_employees}'
+            text = f'{read_all_employees}'
 
-    except ApiException as ae:
-        if ae.code == 412:
-            text = f'Cannot read data from the database'
+    except:
+        text = f'Cannot read data from the database'
 
     return render_template('db.html', data=text)
 
@@ -110,11 +108,10 @@ def deleteDatabase():
     try:
         response = service.delete_database(db=db_to_delete).get_result()
         if response["ok"]:
-            text = f'{db_to_delete} database is now deleted!'
+            text = f'Database {db_to_delete} is now deleted!'
 
-    except ApiException as ae:
-        if ae.code == 412:
-            text = f'Cannot read data from the database'
+    except:
+        text = f'Cannot find the database to delete.'
 
     return render_template('db.html', data=text)
 
