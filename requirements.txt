@@ -4,3 +4,4 @@ pandas==0.25.3
 requests==2.22.0
 xlrd==1.2.0
 ibmcloudant>=0.0.38
+ibm-watson>=5.3.0
