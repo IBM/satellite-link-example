@@ -50,11 +50,11 @@ def login():
 @app.route('/nlu', methods=['POST'])
 def connect():
     global databaseName
-    url_to_analyze = request.form['nlu']
+    text_to_analyze = request.form['nlu']
     
     try:
         response = natural_language_understanding.analyze(
-            url= url_to_analyze,
+            text= text_to_analyze,
             features=Features(categories=CategoriesOptions(limit=3))).get_result()
         if response["categories"]:
             text = json.dumps(response, indent=2)
