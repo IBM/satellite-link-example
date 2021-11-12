@@ -1,11 +1,11 @@
 # Satellite Link Example
 
-This simple application allows to query a Cloudant NoSQL database. The form prompts you for the database credentials. These credentials will be sent to the application running in the cluster and the connection will be made to the database over Satellite link.
+This simple application allows to query a PostgreSQL database. The form prompts you for the database credentials. These credentials will be sent to the application running in the cluster and the connection will be made to the database over Satellite link.
 
 This sample requires:
 - a running Satellite location,
 - an OpenShift cluster running in the location with its image registry correctly configured,
-- a _Cloudant NoSQL database_ instance running in IBM Cloud.
+- a _Databases for PostgreSQL_ instance running in IBM Cloud.
 
 ## Deploy the application on Red Hat OpenShift cluster
 
@@ -42,7 +42,7 @@ This sample requires:
    ```
    ![](images/oc.png)
 
-## Test the application
+## Test the application - database
 
 ### Fill in the details as shown below.
 
@@ -74,6 +74,8 @@ In place of hostname and port, give your Satellite endpoint url and its port. Al
 ## See the data rate in the Satellite dashboard
 
 ![](images/satellite.png)
+
+## Test the application - database
 
 ## Remove the application
 

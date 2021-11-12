@@ -37,23 +37,16 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
-
-
-<h3>Database login</h3>
-<a href="/login-nlu">Switch to Natural Language Understanding</a>
-
+  
+<h3>Natural language Understanding login</h3>
+<a href="/">Switch to Database login</a>
+  
 <div class="container">
-  <form action = "/login" method="POST">
-    <label for="fname">Hostname</label>
-    <input type="text" id="host" name="host" placeholder="host">
-    <label for="fname">Port</label>
-    <input type="text" id="port" name="port" placeholder=00000>
-    <label for="fname">Username</label>
-    <input type="text" id="user" name="user" placeholder="username">
-    <label for="fname">Password</label>
-    <input type="text" id="password" name="password" placeholder="password">
-    <label for="fname">Database</label>
-    <input type="text" id="database" name="database" placeholder="database">
+  <form action = "/login-nlu" method="POST">
+    <label for="fname">URL</label>
+    <input type="text" id="host" name="host" placeholder="NLU url">
+    <label for="fname">API key</label>
+    <input type="text" id="password" name="password" placeholder="API key">
     <input type="submit" value="Login">
   </form>
 </div>

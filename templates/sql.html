@@ -38,23 +38,21 @@ input[type=submit]:hover {
 </head>
 <body>
 
-
 <h3>Database login</h3>
 <a href="/login-nlu">Switch to Natural Language Understanding</a>
+<p>{{data}}</p>
 
 <div class="container">
-  <form action = "/login" method="POST">
-    <label for="fname">Hostname</label>
-    <input type="text" id="host" name="host" placeholder="host">
-    <label for="fname">Port</label>
-    <input type="text" id="port" name="port" placeholder=00000>
-    <label for="fname">Username</label>
-    <input type="text" id="user" name="user" placeholder="username">
-    <label for="fname">Password</label>
-    <input type="text" id="password" name="password" placeholder="password">
-    <label for="fname">Database</label>
-    <input type="text" id="database" name="database" placeholder="database">
-    <input type="submit" value="Login">
+  <form action = "/sql" method="POST">
+    <label for="fname">SQL Statement</label>
+    <input type="text" id="sqlstatement" name="sql" placeholder="write your sql statement here">
+    <input type="submit" value="submit">
+  </form>
+</div>
+
+<div class="container">
+  <form action = "/logout" method="POST">
+    <input type="submit" value="Logout">
   </form>
 </div>
 

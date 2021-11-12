@@ -3,5 +3,5 @@ Flask-Cors==3.0.7
 pandas==0.25.3
 requests==2.22.0
 xlrd==1.2.0
-ibmcloudant>=0.0.38
+psycopg2
 ibm-watson>=5.3.0
