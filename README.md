@@ -75,6 +75,18 @@ In place of hostname and port, give your Satellite endpoint url and its port. Al
 
 ![](images/satellite.png)
 
+## Test the application with Natural Language Understanding (NLU) service.
+
+1. Provision a NLU service from the IBM Cloud catalog with a **Standard** plan and choose **Both Public & Private Network**.
+2. Create a `HTTPS` Satellite link endpoint pointing to the NLU service FQDN. For example, `api.us-east.natural-language-understanding.watson.cloud.ibm.com`.
+3. In the deployed application, click on **Switch to Natural Language Understanding** and provide your Satellite endpoint under `URL` and NLU service `API key`. Click **Connect**.
+   ![NLU login](images/nlu_login.png)
+4. Provide text and click **Analyze**.
+   ![NLU analyze](images/nlu_response.png)
+5. Check the data rate by navigating to the Satellite link endpoint
+   ![satellite data rate](images/nlu_satellite.png)
+
+
 ## Remove the application
 
 Delete the project:

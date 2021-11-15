@@ -37,22 +37,17 @@ input[type=submit]:hover {
 </style>
 </head>
 <body>
-
-<h3>Database login</h3>
-<a href="/login-nlu">Switch to Natural Language Understanding</a>
-<p>{{data}}</p>
-
+  
+<h3>Natural language Understanding login</h3>
+<a href="/">Switch to Database login</a>
+  
 <div class="container">
-  <form action = "/sql" method="POST">
-    <label for="fname">SQL Statement</label>
-    <input type="text" id="sqlstatement" name="sql" placeholder="write your sql statement here">
-    <input type="submit" value="submit">
-  </form>
-</div>
-
-<div class="container">
-  <form action = "/logout" method="POST">
-    <input type="submit" value="Logout">
+  <form action = "/login-nlu" method="POST">
+    <label for="fname">URL</label>
+    <input type="text" id="host" name="host" placeholder="url">
+    <label for="fname">API key</label>
+    <input type="text" id="password" name="password" placeholder="API key">
+    <input type="submit" value="Connect">
   </form>
 </div>
 
