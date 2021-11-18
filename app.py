@@ -106,8 +106,10 @@ def loginNLU():
             version='2021-03-25',
             authenticator=authenticator)
 
-        if serviceURL.find("https://") == -1:
+        if len(serviceURL.strip().split("://")) < 2:
             serviceURL = "https://" + serviceURL
+        elif serviceURL.strip().split("://")[0].lower() != "https":
+            serviceURL = "https://" + serviceURL.split("://")[1]
 
         natural_language_understanding.set_service_url(serviceURL)
         service_status_code = natural_language_understanding.list_models().get_status_code()
