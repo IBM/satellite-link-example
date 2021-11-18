@@ -16,10 +16,13 @@ CORS(app)
 
 ##################################################
 # PostgreSQL routes
-##################################################   
+##################################################
+
+
 @app.route('/')
 def my_form():
     return render_template('login.html')
+
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -31,58 +34,62 @@ def login():
     global conn
     global cursor
     try:
-    	conn = psycopg2.connect(
-    host=host,
-    port= port,
-    user=user,
-    password=password,
-    database=database)
-    	cursor = conn.cursor()
-    	conn.autocommit = True
-    	text = "Connection Successful"
+        conn = psycopg2.connect(
+            host=host,
+            port=port,
+            user=user,
+            password=password,
+            database=database)
+        cursor = conn.cursor()
+        conn.autocommit = True
+        text = "Connection Successful"
     except:
-    	text = "Unable to connect to database"
+        text = "Unable to connect to database"
 
     return render_template('sql.html', data=text)
+
 
 @app.route('/sql', methods=['POST'])
 def sql():
     sql = request.form['sql']
     if "select" in sql.lower():
-    	try:
-    		cursor.execute(sql)
-    		text = cursor.fetchall();
-    		conn.commit()
-    	except:
-    		text = "Sql connection failed"
+        try:
+            cursor.execute(sql)
+            text = cursor.fetchall()
+            conn.commit()
+        except:
+            text = "Sql connection failed"
     elif "insert" in sql.lower():
-    	try:
-    		cursor.execute(sql)
-    		conn.commit()
-    		text = "Insert data successful"
-    	except:
-    		text = "Sql connection failed"
+        try:
+            cursor.execute(sql)
+            conn.commit()
+            text = "Insert data successful"
+        except:
+            text = "Sql connection failed"
     else:
-    	try: 
-    		cursor.execute(sql)
-    		conn.commit()
-    		text = "Sql statement successfully executed"
-    	except:
-    		text  = "Sql connection failed"
+        try:
+            cursor.execute(sql)
+            conn.commit()
+            text = "Sql statement successfully executed"
+        except:
+            text = "Sql connection failed"
     return render_template('sql.html', data=text)
+
 
 @app.route('/logout', methods=['POST'])
 def logout():
-	conn.close()
-	return render_template('login.html')
+    conn.close()
+    return render_template('login.html')
 
 ########################################################
 # Natural Language Understanding routes
 ########################################################
 
+
 @app.route('/login-nlu')
 def my_form_nlu():
     return render_template('login-nlu.html')
+
 
 @app.route('/login-nlu', methods=['POST'])
 def loginNLU():
@@ -92,15 +99,17 @@ def loginNLU():
     try:
         serviceURL = request.form['host']
         apiKey = request.form['password']
-        
+
         # Create the authenticator.
         authenticator = IAMAuthenticator(apiKey)
         natural_language_understanding = NaturalLanguageUnderstandingV1(
             version='2021-03-25',
             authenticator=authenticator)
-            
-        natural_language_understanding.set_service_url(serviceURL)
 
+        if serviceURL.find("https://") == -1:
+            serviceURL = "https://" + serviceURL
+
+        natural_language_understanding.set_service_url(serviceURL)
         service_status_code = natural_language_understanding.list_models().get_status_code()
 
         if service_status_code == 200:
@@ -116,10 +125,10 @@ def loginNLU():
 def connect():
     global databaseName
     text_to_analyze = request.form['nlu']
-    
+
     try:
         response = natural_language_understanding.analyze(
-            text= text_to_analyze,
+            text=text_to_analyze,
             features=Features(categories=CategoriesOptions(limit=3))).get_result()
         if response["categories"]:
             text = json.dumps(response, indent=2)
@@ -127,11 +136,13 @@ def connect():
     except:
         text = f'No response from the NLU service.'
 
-    return render_template('nlu.html', response=text, show = True)
+    return render_template('nlu.html', response=text, show=True)
+
 
 @app.route('/logout-nlu', methods=['POST'])
 def logout_nlu():
-	return render_template('login-nlu.html')
+    return render_template('login-nlu.html')
+
 
 port = os.getenv('VCAP_APP_PORT', '8080')
 if __name__ == "__main__":
