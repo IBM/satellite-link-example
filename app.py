@@ -99,6 +99,10 @@ def loginNLU():
     try:
         serviceURL = request.form['host']
         apiKey = request.form['password']
+        
+        if len(serviceURL) == 0 or len(apiKey) == 0:
+            text = "Provide a valid URL and API Key..."
+            return render_template('login-nlu.html', data=text)
 
         # Create the authenticator.
         authenticator = IAMAuthenticator(apiKey)
