@@ -1,0 +1,8 @@
+language: minimal
+
+services:
+  - docker
+
+script:
+  - |
+    docker pull registry.access.redhat.com/ubi8/python-39
