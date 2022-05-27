@@ -3,4 +3,4 @@ language: minimal
 services:
   - docker
 
-script: .travis.sh
+script: ./.travis.sh
